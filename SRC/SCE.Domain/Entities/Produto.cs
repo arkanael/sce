@@ -8,9 +8,14 @@ namespace SCE.Domain.Entities
 {
     internal class Produto
     {
-        public int IdProduto { get; set; }
+        public Guid Id { get; set; }
         public string Nome { get; set; }
-        public string Fabricante { get; set; }
+        public Fabricante Fabricante { get; set; }
         public string Modelo { get; set; }
+
+        public override string ToString()
+        {
+            return $"{Nome} - {Fabricante.Nome}";
+        }
     }
 }
