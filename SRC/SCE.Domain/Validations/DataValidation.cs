@@ -28,6 +28,13 @@ namespace SCE.Domain.Validations
                 return true;
             return false;
         }
+
+        public static bool NaoPodeSerDiferenteQueDataAtual(DateTime? date)
+        {
+            if (date == null || date != DateTime.Now)
+                return true;
+            return false;
+        }
     }
 
 }
