@@ -12,9 +12,13 @@ namespace SCE.Domain.Entities
     {
         
         public Guid Id { get; private set; }
+
         public string Nome { get; private set; }
+
         public string Modelo { get; private set; }
+
         public DateTime DataCadastro { get; private set; }
+
         public DateTime? DataUltimaAtualizacao { get; private set; }
 
         public Produto Cadastrar(string nome, string modelo)
