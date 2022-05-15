@@ -24,6 +24,7 @@ namespace SCE.Domain.Entities
             Modelo = modelo;
             DataCadastro = DateTime.Now;
             DataUltimaAtualizacao = null;
+            Validate();
         }
 
         public void Atualizar(Guid id, string nome, string modelo)
@@ -32,6 +33,7 @@ namespace SCE.Domain.Entities
             Nome = nome;
             Modelo = modelo;
             DataUltimaAtualizacao = DateTime.Now;
+            Validate();
         }
 
         public override bool Validate()
@@ -45,14 +47,14 @@ namespace SCE.Domain.Entities
             if (StringValidation.NaoPodeSerNulo(Nome))
                 AddNotification("Nome", "O nome do produto não pode ser nulo.");
 
-            if (StringValidation.QuantidadeMaximaCaracteres(Nome, 60))
-                AddNotification("Nome", "O nome do produto não pode ter mais que 60 caracteres.");
+            if (StringValidation.QuantidadeMaximaCaracteres(Nome, 20))
+                AddNotification("Nome", "O nome do produto não pode ter mais que 20 caracteres.");
 
             if (StringValidation.NaoPodeSerNulo(Modelo))
                 AddNotification("Modelo", "O modelo do produto não pode ser nulo.");
 
-            if (StringValidation.QuantidadeMaximaCaracteres(Modelo, 60))
-                AddNotification("Modelo", "O modelo do produto não pode ter mais que 60 caracteres.");
+            if (StringValidation.QuantidadeMaximaCaracteres(Modelo, 20))
+                AddNotification("Modelo", "O modelo do produto não pode ter mais que 20 caracteres.");
 
             return (Notifications.Count == 0);
 
