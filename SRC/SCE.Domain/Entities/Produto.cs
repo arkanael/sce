@@ -11,7 +11,6 @@ namespace SCE.Domain.Entities
     public class Produto : Validable
     {
         
-
         public Guid Id { get; private set; }
         public string Nome { get; private set; }
         public string Modelo { get; private set; }
@@ -35,12 +34,6 @@ namespace SCE.Domain.Entities
             DataUltimaAtualizacao = DateTime.Now;
         }
 
-
-        public override string ToString()
-        {
-            return $"{Nome} - {Modelo}";
-        }
-
         public override bool Validate()
         {
             if (DataValidation.NaoPodeSerNula(DataCadastro))
@@ -49,9 +42,25 @@ namespace SCE.Domain.Entities
             if (DataValidation.NaoPodeSerMaiorQueDataAtual(DataCadastro))
                 AddNotification("DataCadastro", "A data de cadastro não pode ser menor que a atual.");
 
+            if (StringValidation.NaoPodeSerNulo(Nome))
+                AddNotification("Nome", "O nome do produto não pode ser nulo.");
+
+            if (StringValidation.QuantidadeMaximaCaracteres(Nome, 60))
+                AddNotification("Nome", "O nome do produto não pode ter mais que 60 caracteres.");
+
+            if (StringValidation.NaoPodeSerNulo(Modelo))
+                AddNotification("Modelo", "O modelo do produto não pode ser nulo.");
+
+            if (StringValidation.QuantidadeMaximaCaracteres(Modelo, 60))
+                AddNotification("Modelo", "O modelo do produto não pode ter mais que 60 caracteres.");
 
             return (Notifications.Count == 0);
 
+        }
+
+        public override string ToString()
+        {
+            return $"{Nome} - {Modelo}";
         }
     }
 }
