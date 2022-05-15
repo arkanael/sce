@@ -26,36 +26,49 @@ namespace SCE.Domain.Entities
             return this;
         }
 
-        public Estoque Atualizar(Estoque estoque, string perfil)
+        /// <summary>
+        /// Método para atualizar o estoque cadastrado.
+        /// </summary>
+        /// <param name="estoque">Passar o estoque</param>
+        /// <param name="perfil">Passar o perfil</param>
+        /// <returns></returns>
+        public Estoque AtualizarEstoqueInicial(int estoqueInicial, string perfil)
         {
             if (perfil != "Admin")
             {
                 AddNotification("Perfil", "O usuário não tem permissão para executar essa ação.");
-
             }
 
-            EstoqueInicial = estoque.EstoqueInicial;
-            Entrada = estoque.Entrada;
+            if (Entrada != 0 || Saida != 0)
+            {
+                AddNotification("EstoqueInicial", "Não é permitido atualizar o estoque inicial. Já foi dado entrada ou saida.");
+            }
+
+            EstoqueInicial = estoqueInicial;
             CalculaQuantidadeTotal();
 
-
             Validate();
-
             return this;
         }
 
         public Estoque SaidaEstoque(int saida)
         {
-            Saida = saida;
+            Saida =- saida;
             Quantidade = Quantidade - Saida;
 
+            if (Quantidade < 0)
+            {
+                AddNotification("SaidaEstoque", "Não é permitido estoque negativo.");
+            }
+
+            Validate();
             return this;
         }
 
         public Estoque EntradaEstoque(int entrada)
         {
-            Entrada = entrada;
-            Quantidade = Quantidade - Entrada;
+            Entrada =+ entrada;
+            Quantidade = Quantidade + Entrada;
 
             return this;
         }
