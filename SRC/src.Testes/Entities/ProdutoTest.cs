@@ -17,7 +17,7 @@ namespace src.Testes.Entities
         {
             string nomeProduto = "SSD 120GB";
             string modeloProduto = "Samsung";
-            bool resultado = false;
+
             Produto produto = new Produto();
 
             produto.Cadastrar(nomeProduto, modeloProduto);
@@ -27,14 +27,7 @@ namespace src.Testes.Entities
                 Assert.Fail();
             }
 
-            resultado = string.IsNullOrEmpty(produto.Nome);
-            Assert.IsFalse(resultado);
-
-            resultado = string.IsNullOrEmpty(produto.Modelo);
-            Assert.IsFalse(resultado);
-
-            Assert.IsTrue(produto.Nome == nomeProduto);
-            Assert.IsTrue(produto.Modelo == modeloProduto);
+            Assert.IsTrue(produto.Validate());
         }
 
     }
