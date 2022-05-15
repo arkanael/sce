@@ -1,4 +1,6 @@
-﻿using System;
+﻿using SCE.Domain.Contracts.Validations;
+using SCE.Domain.Validations;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace SCE.Domain.Entities
 {
-    public class Produto
+    public class Produto : Validable
     {
         
 
@@ -37,6 +39,19 @@ namespace SCE.Domain.Entities
         public override string ToString()
         {
             return $"{Nome} - {Modelo}";
+        }
+
+        public override bool Validate()
+        {
+            if (DataValidation.NaoPodeSerNula(DataCadastro))
+                AddNotification("DataCadastro", "A data de cadastro não pode ser uma data nula.");
+
+            if (DataValidation.NaoPodeSerMaiorQueDataAtual(DataCadastro))
+                AddNotification("DataCadastro", "A data de cadastro não pode ser menor que a atual.");
+
+
+            return (Notifications.Count == 0);
+
         }
     }
 }
