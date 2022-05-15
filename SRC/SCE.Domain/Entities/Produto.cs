@@ -17,7 +17,7 @@ namespace SCE.Domain.Entities
         public DateTime DataCadastro { get; private set; }
         public DateTime? DataUltimaAtualizacao { get; private set; }
 
-        public void Cadastrar(string nome, string modelo)
+        public Produto Cadastrar(string nome, string modelo)
         {
             Id = Guid.NewGuid();
             Nome = nome;
@@ -25,6 +25,7 @@ namespace SCE.Domain.Entities
             DataCadastro = DateTime.Now;
             DataUltimaAtualizacao = null;
             Validate();
+            return this;
         }
 
         public void Atualizar(Guid id, string nome, string modelo)
@@ -34,6 +35,7 @@ namespace SCE.Domain.Entities
             Modelo = modelo;
             DataUltimaAtualizacao = DateTime.Now;
             Validate();
+            
         }
 
         public override bool Validate()
