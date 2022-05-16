@@ -39,9 +39,12 @@ namespace src.Testes.Entities
 
             //Cadastrando o novo estoque passadno o produto e a quantidade de estoque inicial
             Estoque estoque = new Estoque().Cadastrar(produto, 10);
-
-
             Assert.IsTrue(estoque.Validate());
+            Assert.AreEqual(estoque.Quantidade, 10);
+            estoque.AtualizarEstoqueInicial(5, "Admin");
+            Assert.IsTrue(estoque.Validate());
+            Assert.AreEqual(estoque.Quantidade, 5);
+                
         }
 
         [TestMethod("Ao dar saida do estoque corretamente deve retornar True")]
