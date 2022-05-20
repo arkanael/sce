@@ -53,7 +53,7 @@ namespace SCE.Domain.Entities
 
         public Estoque SaidaEstoque(int saida)
         {
-            Saida =- saida;
+            Saida = saida;
             Quantidade = Quantidade - Saida;
 
             if (Quantidade < 0)
