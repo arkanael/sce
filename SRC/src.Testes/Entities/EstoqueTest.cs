@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace src.Testes.Entities
+namespace SCE.Testes.Entities
 {
     [TestCategory("Estoque")]
     [TestClass]
@@ -17,13 +17,13 @@ namespace src.Testes.Entities
         {
             //Cadastrando novo produto
             Produto produto = new Produto().Cadastrar("SSD 120GB", "Samsung");
-            
+
             //Validando o produto cadastrado
             Assert.IsTrue(produto.Validate());
 
             //Cadastrando o novo estoque passadno o produto e a quantidade de estoque inicial
             Estoque estoque = new Estoque().Cadastrar(produto, 10);
-            
+
             Assert.IsTrue(estoque.Validate());
         }
 
@@ -44,7 +44,7 @@ namespace src.Testes.Entities
             estoque.AtualizarEstoqueInicial(5, "Admin");
             Assert.IsTrue(estoque.Validate());
             Assert.AreEqual(estoque.Quantidade, 5);
-                
+
         }
 
         [TestMethod("Ao dar saida do estoque corretamente deve retornar True")]

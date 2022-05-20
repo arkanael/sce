@@ -10,13 +10,13 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		..\README.md = ..\README.md
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "src.Testes", "src.Testes\src.Testes.csproj", "{F5EDC146-9468-460C-A354-B1F13911A01E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SCE.Testes", "src.Testes\SCE.Testes.csproj", "{F5EDC146-9468-460C-A354-B1F13911A01E}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Domain", "Domain", "{9F375D3F-0FE0-4B74-93D1-BCC658DCA557}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{28ADC82D-62B3-4384-8CCA-E1924F435578}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SCE.Infra.Data", "SCE.Infra.Data\SCE.Infra.Data.csproj", "{B32033BA-7539-4983-9AE2-0C601712B7C0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SCE.Infra.Data", "SCE.Infra.Data\SCE.Infra.Data.csproj", "{B32033BA-7539-4983-9AE2-0C601712B7C0}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Repository", "Repository", "{92AC60A1-E539-4C81-A02D-358704333471}"
 EndProject

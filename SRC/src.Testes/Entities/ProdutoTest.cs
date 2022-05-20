@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace src.Testes.Entities
+namespace SCE.Testes.Entities
 {
     [TestCategory("Produto")]
     [TestClass]
@@ -18,9 +18,7 @@ namespace src.Testes.Entities
             string nomeProduto = "SSD 120GB";
             string modeloProduto = "Samsung";
 
-            Produto produto = new Produto();
-
-            produto.Cadastrar(nomeProduto, modeloProduto);
+            Produto produto = new Produto().Cadastrar(nomeProduto, modeloProduto);
 
             if (produto == null)
             {
@@ -36,9 +34,7 @@ namespace src.Testes.Entities
             string nomeProduto = "HD SSD de 512 GIGAS da Marca Samsung";
             string modeloProduto = "SSD";
 
-            Produto produto = new Produto();
-
-            produto.Cadastrar(nomeProduto, modeloProduto);
+            Produto produto = new Produto().Cadastrar(nomeProduto, modeloProduto);
 
             if (produto == null)
             {
@@ -73,7 +69,7 @@ namespace src.Testes.Entities
             Assert.IsTrue(produto.Validate());
 
 
-            produto.Atualizar(produto.Id, novoNomeProduto, novoModeloProduto);
+            produto.Atualizar(produto.Id.Value, novoNomeProduto, novoModeloProduto);
 
             Assert.IsTrue(produto.Validate());
             Assert.AreNotEqual(produto.Nome, nomeProduto);
