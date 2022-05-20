@@ -4,6 +4,7 @@ using SCE.Infra.Data.Contexts;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
+using System.Diagnostics;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
@@ -29,7 +30,7 @@ namespace SCE.Infra.Data.Repositories
             }
             catch (Exception erro)
             {
-
+                Debug.WriteLine(erro);
                 throw new Exception("Não foi possível efetuar o cadastro.");
             }
             finally
