@@ -18,7 +18,7 @@ namespace SCE.Testes.Entities
             string nomeProduto = "SSD 120GB";
             string modeloProduto = "Samsung";
 
-            Produto produto = new Produto().Cadastrar(nomeProduto, modeloProduto);
+            Produto produto = new Produto().Cadastrar(nomeProduto, modeloProduto,"Luiz");
 
             if (produto == null)
             {
@@ -34,7 +34,9 @@ namespace SCE.Testes.Entities
             string nomeProduto = "HD SSD de 512 GIGAS da Marca Samsung";
             string modeloProduto = "SSD";
 
-            Produto produto = new Produto().Cadastrar(nomeProduto, modeloProduto);
+            Usuario usuario = new Usuario();
+
+            Produto produto = new Produto().Cadastrar(nomeProduto, modeloProduto, "Luiz");
 
             if (produto == null)
             {
@@ -55,9 +57,11 @@ namespace SCE.Testes.Entities
             string novoNomeProduto = "HD SSD de 240GB";
             string novoModeloProduto = "HD SSD";
 
+            string usuarioNome = "Luiz Guilherme Bandeira";
+
             Produto produto = new Produto();
 
-            produto.Cadastrar(nomeProduto, modeloProduto);
+            produto.Cadastrar(nomeProduto, modeloProduto, usuarioNome);
 
             if (produto == null)
             {

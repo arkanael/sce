@@ -24,6 +24,9 @@ namespace SCE.Domain.Entities
 
         public DateTime? DataUltimaAtualizacao { get; private set; }
 
+        public string AtualizadoPor { get; set; }
+        public string CadastradoPor { get; set; }
+
         public void SetDataCadastrado()
         {
             DataCadastro = DateTime.Now;
@@ -34,5 +37,14 @@ namespace SCE.Domain.Entities
             DataCadastro = DateTime.Now;
         }
 
+        public void SetCadatradoPor(string cadastradoPor)
+        {
+            CadastradoPor = cadastradoPor;
+        }
+
+        public void SetAtualizadoPor(string atualizadoPor)
+        {
+            AtualizadoPor = atualizadoPor;
+        }
     }
 }

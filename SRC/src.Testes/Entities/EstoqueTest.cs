@@ -12,11 +12,12 @@ namespace SCE.Testes.Entities
     [TestClass]
     public class EstoqueTest
     {
+        string nomeUsuario = "Luiz G. Bandeira";
         [TestMethod("Ao cadastrar um estoque corretamente retornar True")]
         public void CadastrarEstoqueCorretamenteTrue()
         {
             //Cadastrando novo produto
-            Produto produto = new Produto().Cadastrar("SSD 120GB", "Samsung");
+            Produto produto = new Produto().Cadastrar("SSD 120GB", "Samsung", nomeUsuario);
 
             //Validando o produto cadastrado
             Assert.IsTrue(produto.Validate());
@@ -27,12 +28,12 @@ namespace SCE.Testes.Entities
             Assert.IsTrue(estoque.Validate());
         }
 
-
+        
         [TestMethod("Ao Atulizar um estoque corretamente retornar True")]
         public void AtualizarEstoqueCorretamenteTrue()
         {
             //Cadastrando novo produto
-            Produto produto = new Produto().Cadastrar("SSD 120GB", "Samsung");
+            Produto produto = new Produto().Cadastrar("SSD 120GB", "Samsung", nomeUsuario);
 
             //Validando o produto cadastrado
             Assert.IsTrue(produto.Validate());
@@ -51,7 +52,7 @@ namespace SCE.Testes.Entities
         public void CalcularSaidaEstoqueCorretamenteTrue()
         {
             //Cadastrando novo produto
-            Produto produto = new Produto().Cadastrar("SSD 120GB", "Samsung");
+            Produto produto = new Produto().Cadastrar("SSD 120GB", "Samsung", nomeUsuario);
 
             //Validando o produto cadastrado
             Assert.IsTrue(produto.Validate());
@@ -76,7 +77,7 @@ namespace SCE.Testes.Entities
         public void CalcularEntradaEstoqueCorretamenteTrue()
         {
             //Cadastrando novo produto
-            Produto produto = new Produto().Cadastrar("SSD 120GB", "Samsung");
+            Produto produto = new Produto().Cadastrar("SSD 120GB", "Samsung", nomeUsuario);
 
             //Validando o produto cadastrado
             Assert.IsTrue(produto.Validate());

@@ -16,11 +16,12 @@ namespace SCE.Domain.Entities
 
         public string Modelo { get; private set; }
 
-        public Produto Cadastrar(string nome, string modelo)
+        public Produto Cadastrar(string nome, string modelo, string cadastradoPor)
         {
             Nome = nome;
             Modelo = modelo;
             SetDataCadastrado();
+            SetCadatradoPor(cadastradoPor);
             Validate();
             return this;
         }
